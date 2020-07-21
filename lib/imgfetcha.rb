@@ -1,4 +1,4 @@
-require "imgfetcha/version"
+require 'imgfetcha/version'
 
 module Imgfetcha
   class Error < StandardError; end
