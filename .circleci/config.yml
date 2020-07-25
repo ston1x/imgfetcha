@@ -9,4 +9,3 @@ jobs:
     steps:
       - checkout
       - ruby/install-deps
-        ruby/rspec-test
