@@ -1,0 +1,24 @@
+version: 2.0
+
+jobs:
+  build:
+    docker:
+      - image: circleci/ruby:2.7.1-buster
+    executor: ruby/default
+    steps:
+      - checkout
+      - run:
+          name: Which bundler?
+          command: bundle -v
+      - run:
+          name: Which ruby?
+          command: ruby -v
+      - run:
+          name: Bundle install
+          command: bundle install
+      - run:
+          name: Rubocop
+          command: bundle exec rubocop
+      - run:
+          name: Rspec
+          command: bundle exec rspec
