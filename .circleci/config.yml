@@ -6,18 +6,8 @@ jobs:
       - image: circleci/ruby:2.7.1-buster
     steps:
       - checkout
-      - run:
-          name: Which bundler?
-          command: bundle -v
-      - run:
-          name: Which ruby?
-          command: ruby -v
-      - run:
-          name: Bundle install
-          command: bundle install
-      - run:
-          name: Rubocop
-          command: bundle exec rubocop
-      - run:
-          name: Rspec
-          command: bundle exec rspec
+      - run: bundle -v
+      - run: ruby -v
+      - run: bundle install
+      - run: bundle exec rubocop
+      - run: bundle exec rspec
