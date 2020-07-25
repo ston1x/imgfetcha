@@ -1,13 +1,15 @@
-version: 2.0
+version: 2.1
+orbs:
+  ruby: circleci/ruby@0.1.2
 
 jobs:
   build:
     docker:
-      - image: circleci/ruby:2.7.1-buster
+      - image: circleci/ruby:2.6.3-stretch-node
+    executor: ruby/default
     steps:
       - checkout
-      - run: bundle -v
-      - run: ruby -v
-      - run: bundle install
-      - run: bundle exec rubocop
-      - run: bundle exec rspec
+      - run:
+          name: Which bundler?
+          command: bundle -v
+      - ruby/bundle-install
