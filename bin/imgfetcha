@@ -2,5 +2,5 @@
 require 'imgfetcha'
 
 begin
-  puts 'hey'
+  Imgfetcha.run
 end
