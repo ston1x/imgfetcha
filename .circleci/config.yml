@@ -4,7 +4,6 @@ jobs:
   build:
     docker:
       - image: circleci/ruby:2.7.1-buster
-    executor: docker/default
     steps:
       - checkout
       - run:
