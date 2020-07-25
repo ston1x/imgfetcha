@@ -18,7 +18,7 @@ module Imgfetcha
     def execute_parser
       OptionParser.new do |opts|
         # TODO: Update it
-        opts.banner = 'Usage!!!!!!!!!!!!!'
+        opts.banner = 'Usage: imgfetcha -i INPUT_FILE -o OUTPUT_DIRECTORY'
 
         opts.on('-v', '--[no-]verbose', 'Run verbosely') do |v|
           @options[:verbose] = v

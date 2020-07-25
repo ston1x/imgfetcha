@@ -27,4 +27,5 @@ Gem::Specification.new do |spec|
 
   # Specify development dependencies
   spec.add_development_dependency 'pry', '~> 0.13.1'
+  spec.add_development_dependency 'rspec', '~> 3.9.0'
 end
