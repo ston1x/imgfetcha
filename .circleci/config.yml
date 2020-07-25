@@ -4,7 +4,9 @@ jobs:
     working_directory: ~/imgfetcha
     docker:
       - image: circleci/ruby:2.7.1
+        environment:
+          BUNDLER_VERSION: 2.1.4
   steps:
     - checkout
-    - run: gem install bundler -v 2.1.4
+    - run: gem install bundler
     - run: bundle install
