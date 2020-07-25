@@ -8,6 +8,7 @@ jobs:
           BUNDLER_VERSION: 2.1.4
   steps:
     - checkout
+
     - run:
         name: Install bundler
         command: gem install bundler
