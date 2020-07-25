@@ -1,11 +1,10 @@
-version: 2.1
-orbs:
-  ruby: circleci/ruby@1.0.7
-
+version: 2
 jobs:
-  build:
-    docker:
-      - image: cimg/ruby:2.7-node
+    build:
+        working_directory: ~/imgfetcha
+        docker:
+            - image: circleci/ruby:2.7.1
     steps:
-      - checkout
-      - ruby/install-deps
+        - checkout
+        - run: gem install bundler -v 2.1.4
+        - run: bundle install
