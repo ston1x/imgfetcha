@@ -8,5 +8,9 @@ jobs:
           BUNDLER_VERSION: 2.1.4
   steps:
     - checkout
-    - run: gem install bundler
-    - run: bundle install
+    - run:
+        name: Install bundler
+        command: gem install bundler
+    - run:
+        name: Install deps
+        command: bundle install
