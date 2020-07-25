@@ -9,10 +9,4 @@ jobs:
     steps:
       - checkout
       - ruby/install-deps
-  test:
-    docker:
-      - image: cimg/ruby:2.7-node
-    steps:
-      - checkout
-      - ruby/install-deps
         ruby/rspec-test
