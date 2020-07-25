@@ -1,6 +1,5 @@
 require 'imgfetcha/version'
 require 'imgfetcha/arg_parser'
-require 'pry'
 
 module Imgfetcha
   def self.run
