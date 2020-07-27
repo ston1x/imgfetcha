@@ -11,7 +11,7 @@ module Imgfetcha
       raise InputFileNotSpecifiedError unless @input_file
 
       read_file
-      validate_urls
+      filter_urls
     end
 
     private
@@ -21,8 +21,9 @@ module Imgfetcha
       @contents = File.read(File.expand_path(@input_file)).split
     end
 
-    def validate_urls
+    def filter_urls
       @result = @contents.select { |url| URI.parse(url).is_a?(URI::HTTP) }
+      # TODO: group valid and unvalid URLs, warn about invalid ones
     end
   end
 end
