@@ -2,6 +2,7 @@ require 'imgfetcha/version'
 require 'imgfetcha/arg_parser'
 require 'imgfetcha/file_reader'
 require 'imgfetcha/errors/input_file_not_specified_error'
+require 'imgfetcha/errors/no_urls_found_error'
 
 module Imgfetcha
   def self.run

@@ -24,7 +24,11 @@ module Imgfetcha
 
     def filter_urls
       @result = @contents.select { |url| URI.parse(url).is_a?(URI::HTTP) }
+      raise NoUrlsFoundError if @result.empty?
+
       # TODO: group valid and unvalid URLs, warn about invalid ones
+
+      @result
     end
   end
 end
