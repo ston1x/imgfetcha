@@ -11,6 +11,8 @@ module Imgfetcha
     def run
       read_file
       filter_urls
+      report_results if @verbose
+      @result
     end
 
     private
@@ -29,6 +31,11 @@ module Imgfetcha
       # TODO: group valid and unvalid URLs, warn about invalid ones
 
       @result
+    end
+
+    def report_results
+      puts "Found #{@result.count} URLs in #{@contents.count} lines:"
+      puts @result
     end
   end
 end

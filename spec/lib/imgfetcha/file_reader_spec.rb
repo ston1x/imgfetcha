@@ -34,5 +34,17 @@ describe Imgfetcha::FileReader do
         expect { subject.run }.to raise_error(described_class::NoUrlsFoundError)
       end
     end
+
+    context "when 'verbose' option is given" do
+      let(:input_file) { 'spec/fixtures/partially_correct_file.txt' }
+
+      before do
+        options[:verbose] = true
+      end
+
+      it 'logs results to stdout' do
+        expect { subject.run }.to output(/Found 3 URLs in 9 lines/).to_stdout
+      end
+    end
   end
 end
