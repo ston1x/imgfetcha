@@ -5,9 +5,9 @@ describe Imgfetcha::ArgParser do
     ARGV.replace args
   end
 
-  describe '#parse' do
+  describe '#run' do
     context 'with supported args' do
-      let(:expected_options) do
+      let(:expected_result) do
         {
           verbose: true,
           input_file: '~/file.txt',
@@ -19,8 +19,8 @@ describe Imgfetcha::ArgParser do
         let(:args) { %w[-i ~/file.txt -o ~/output/ -v] }
 
         it 'returns parsed options' do
-          subject.parse
-          expect(subject.options).to eq(expected_options)
+          subject.run
+          expect(subject.result).to eq(expected_result)
         end
       end
 
@@ -28,8 +28,8 @@ describe Imgfetcha::ArgParser do
         let(:args) { %w[--input=~/file.txt --output=~/output/ --verbose] }
 
         it 'returns parsed options' do
-          subject.parse
-          expect(subject.options).to eq(expected_options)
+          subject.run
+          expect(subject.result).to eq(expected_result)
         end
       end
     end
@@ -38,7 +38,7 @@ describe Imgfetcha::ArgParser do
       let(:args) { %w[--some-arg -a] }
 
       it 'raises InvalidOption error' do
-        expect { subject.parse }.to raise_error(OptionParser::InvalidOption)
+        expect { subject.run }.to raise_error(OptionParser::InvalidOption)
       end
     end
   end

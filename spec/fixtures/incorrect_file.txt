@@ -1,0 +1,3 @@
+www.example.com
+This file actually doesn't have any valid URLs,
+So the FileReader should fail
