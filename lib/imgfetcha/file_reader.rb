@@ -5,11 +5,10 @@ module Imgfetcha
     def initialize(options)
       @input_file       = options[:input_file]
       @output_directory = options[:output_directory] || Dir.pwd
+      @verbose          = options[:verbose]
     end
 
     def run
-      raise InputFileNotSpecifiedError unless @input_file
-
       read_file
       filter_urls
     end
@@ -17,6 +16,8 @@ module Imgfetcha
     private
 
     def read_file
+      raise InputFileNotSpecifiedError unless @input_file
+
       # Expand path so that Dir#chdir would understand paths relative to home
       @contents = File.read(File.expand_path(@input_file)).split
     end
