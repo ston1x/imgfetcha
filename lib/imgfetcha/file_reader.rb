@@ -1,11 +1,11 @@
+require 'pry'
 module Imgfetcha
   class FileReader
-    attr_reader :input_file, :output_directory, :result
+    attr_reader :input_file, :result
 
     def initialize(options)
-      @input_file       = options[:input_file]
-      @output_directory = options[:output_directory] || Dir.pwd
-      @verbose          = options[:verbose]
+      @input_file = options[:input_file]
+      @verbose    = options[:verbose]
     end
 
     def run

@@ -1,9 +1,7 @@
 describe Imgfetcha::FileReader do
-  let(:output_directory) { 'spec/fixtures/' }
-  let(:lines)            { File.read(File.expand_path(input_file)).split.count }
+  let(:lines) { File.read(File.expand_path(input_file)).split.count }
   let(:options) do
     {
-      output_directory: output_directory,
       input_file: input_file
     }
   end

@@ -10,6 +10,7 @@ module Imgfetcha
 
     def run
       execute_parser
+      @result
     end
 
     private
@@ -29,7 +30,7 @@ module Imgfetcha
         end
 
         opts.on('-o OUTPUT_DIRECTORY', '--output=OUTPUT_DIRECTORY', 'Specify output directory') do |o|
-          @result[:output_directory] = o
+          @result[:output_dir] = o
         end
 
         opts.on('-V', '--version', 'Print version') do
