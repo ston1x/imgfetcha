@@ -11,7 +11,7 @@ describe Imgfetcha::ArgParser do
         {
           verbose: true,
           input_file: '~/file.txt',
-          output_directory: '~/output/'
+          output_dir: '~/output/'
         }
       end
 
