@@ -6,7 +6,7 @@ module Imgfetcha
   class BatchFetcher
     VALID_TYPES = %w[jpeg jpg png].freeze
 
-    attr_reader :urls, :output_dir
+    attr_reader :urls, :output_dir, :result
 
     def initialize(urls, options)
       @urls       = urls
@@ -15,29 +15,32 @@ module Imgfetcha
     end
 
     def run
-      batch_download
+      @result = batch_download
+      puts "\nDownloaded #{@result.count} images"
+      @result
     end
 
     private
 
     def batch_download
-      urls.each_with_index do |url, i|
+      urls.map.with_index do |url, i|
         print_progress(url, i)
-
         temp_file = URI.open(url)
-        type = detect_type(temp_file)
+        type      = detect_type(temp_file)
 
-        break unless validate_type(type, url)
+        next unless validate_type(type, url)
 
-        save_file(
-          temp_file: temp_file,
-          name: File.basename(URI.parse(url).path),
-          type: type
-        )
-      end
+        write_file(temp_file: temp_file, name: file_name(url), type: type)
+        url
+      end.compact
     end
 
-    def save_file(temp_file:, name:, type:)
+    # Get basename from a URL
+    def file_name(url)
+      File.basename(URI.parse(url).path)
+    end
+
+    def write_file(temp_file:, name:, type:)
       File.open("#{@output_dir}/#{name}.#{type}", 'wb') do |f|
         f.write(temp_file.read) ? print('OK') : print('ERROR')
       end
@@ -48,10 +51,10 @@ module Imgfetcha
       MIME::Types[content_type].first.preferred_extension
     end
 
-    def validate_type(type, url)
+    def validate_type(type)
       return true if VALID_TYPES.include?(type)
 
-      puts("Type #{type} is invalid: #{url}")
+      print("ERROR: Type #{type} is invalid")
       false
     end
 
