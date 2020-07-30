@@ -28,7 +28,7 @@ module Imgfetcha
         temp_file = URI.open(url)
         type      = detect_type(temp_file)
 
-        next unless validate_type(type, url)
+        next unless validate_type(type)
 
         write_file(temp_file: temp_file, name: file_name(url), type: type)
         url
