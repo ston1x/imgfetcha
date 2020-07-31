@@ -1,31 +1,41 @@
-# Imgfetcha
+# imgfetcha
 
 
 [![ston1x](https://circleci.com/gh/ston1x/imgfetcha.svg?style=svg)](https://github.com/ston1x/imgfetcha)
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/imgfetcha`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+imgfetcha is a Ruby gem for batch downloading images from a URL. It supports `.jpg`, `.png`, `.gif`, `.heic` file types but you can customize it in code. As of version `0.2.0`, it supports `octet-stream` file types as well (you can use attachment links without image preview where downloading automatically begins).
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'imgfetcha'
+Clone the repository:
+```sh
+git clone https://github.com/ston1x/imgfetcha.git
 ```
 
-And then execute:
+Navigate into the directory:
+```sh
+cd imgfetcha
+```
 
-    $ bundle install
+Build the gem:
+```sh
+gem build imgfetcha.gemspec
+```
 
-Or install it yourself as:
-
-    $ gem install imgfetcha
+Install the gem:
+```sh
+gem install imgfetcha-0.2.0.gem
+```
 
 ## Usage
+```sh
+mkdir ~/image_downloads
+imgfetcha -i example_input.txt -o ~/image_downloads -v
+```
 
-TODO: Write usage instructions here
+```sh
+imgfetcha --help
+```
 
 ## Development
 
@@ -35,7 +45,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/imgfetcha. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/imgfetcha/blob/master/CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome on GitHub at https://github.com/ston1x/imgfetcha. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/ston1x/imgfetcha/blob/master/CODE_OF_CONDUCT.md).
 
 
 ## License
@@ -44,4 +54,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the Imgfetcha project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/imgfetcha/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the Imgfetcha project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/ston1x/imgfetcha/blob/master/CODE_OF_CONDUCT.md).
