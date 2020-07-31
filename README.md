@@ -7,24 +7,9 @@ imgfetcha is a Ruby gem for batch downloading images from a URL. It supports `.j
 
 ## Installation
 
-Clone the repository:
+Install the gem
 ```sh
-git clone https://github.com/ston1x/imgfetcha.git
-```
-
-Navigate into the directory:
-```sh
-cd imgfetcha
-```
-
-Build the gem:
-```sh
-gem build imgfetcha.gemspec
-```
-
-Install the gem:
-```sh
-gem install imgfetcha-0.2.0.gem
+gem install imgfetcha
 ```
 
 ## Usage
