@@ -1,3 +1,4 @@
+https://filesamples.com/samples/image/heic/sample1.heic
 https://images.unsplash.com/photo-1595895032883-25ed0e4df2fd?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb
 https://images.unsplash.com/photo-1595922344471-d4205e7cb618?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb
 https://images.unsplash.com/photo-1595885384307-e0ab59e3d6a3?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb

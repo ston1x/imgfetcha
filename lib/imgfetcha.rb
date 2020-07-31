@@ -17,5 +17,6 @@ module Imgfetcha
     downloader.run
   rescue StandardError, NotImplementedError => e
     puts e.class, e.message
+    puts e.backtrace if options[:verbose]
   end
 end
