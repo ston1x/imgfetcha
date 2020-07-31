@@ -1,4 +1,3 @@
-require 'pry'
 module Imgfetcha
   class FileReader
     attr_reader :input_file, :result

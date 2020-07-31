@@ -1,10 +1,10 @@
-require 'pry'
 require 'open-uri'
 require 'mime/types'
 
 module Imgfetcha
   class BatchFetcher
-    VALID_TYPES = %w[jpeg jpg png].freeze
+    # NOTE: 'bin' stands for `application/octet-stream`
+    VALID_TYPES = %w[jpeg jpg png gif heic bin].freeze
 
     attr_reader :urls, :output_dir, :result
 
@@ -30,18 +30,22 @@ module Imgfetcha
 
         next unless validate_type(type)
 
-        write_file(temp_file: temp_file, name: file_name(url), type: type)
+        write_file(temp_file: temp_file, name: file_name(url, temp_file))
         url
       end.compact
     end
 
     # Get basename from a URL
-    def file_name(url)
-      File.basename(URI.parse(url).path)
+    def file_name(url, file)
+      name = File.basename(URI.parse(url).path)
+      # Append type if valid types aren't contained in the name
+      name += ".#{detect_type(file)}" unless VALID_TYPES.any? { |type| name.include?(type) }
+
+      name
     end
 
-    def write_file(temp_file:, name:, type:)
-      File.open("#{@output_dir}/#{name}.#{type}", 'wb') do |f|
+    def write_file(temp_file:, name:)
+      File.open("#{@output_dir}/#{name}", 'wb') do |f|
         f.write(temp_file.read) ? print('OK') : print('ERROR')
       end
     end

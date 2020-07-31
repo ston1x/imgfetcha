@@ -18,7 +18,6 @@ module Imgfetcha
     # rubocop:disable Metrics/MethodLength
     def execute_parser
       OptionParser.new do |opts|
-        # TODO: Update it
         opts.banner = 'Usage: imgfetcha -i INPUT_FILE -o OUTPUT_DIRECTORY'
 
         opts.on('-v', '--[no-]verbose', 'Run verbosely') do |v|
