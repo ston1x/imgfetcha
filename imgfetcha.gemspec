@@ -26,7 +26,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   # Specify runtime dependencies
-  spec.add_development_dependency 'mime-types', '~> 3.1'
+  spec.add_runtime_dependency 'mime-types', '~> 3.1'
 
   # Specify development dependencies
   spec.add_development_dependency 'pry', '~> 0.13.1'
