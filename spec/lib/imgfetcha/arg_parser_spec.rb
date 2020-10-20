@@ -32,6 +32,14 @@ describe Imgfetcha::ArgParser do
           expect(subject.result).to eq(expected_result)
         end
       end
+
+      context 'when argument is not given for an option' do
+        let(:args) { %w[-i] }
+
+        it 'raises the OptionParser::MissingArgument error' do
+          expect { subject.run }.to raise_error(OptionParser::MissingArgument)
+        end
+      end
     end
 
     context 'with unsupported args' do

@@ -7,7 +7,7 @@ require 'imgfetcha/errors/no_urls_found_error'
 
 module Imgfetcha
   def self.run
-    parser = ArgParser.new
+    parser  = ArgParser.new
     options = parser.run
 
     reader = FileReader.new(options)
